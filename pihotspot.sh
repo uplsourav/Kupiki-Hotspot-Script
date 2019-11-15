@@ -10,12 +10,12 @@ LOGPATH="/var/log/"
 # Password for user root (MySql/MariaDB not system)
 MYSQL_PASSWORD="pihotspot"
 # Name of the hotspot that will be visible for users/customers
-HOTSPOT_NAME="kupikihotspot"
+HOTSPOT_NAME="MyWifi"
 # IP of the hotspot
 HOTSPOT_IP="192.168.10.1"
 # Wi-fi code country. Use above link to find yours
 # https://www.cisco.com/c/en/us/td/docs/wireless/wcs/3-2/configuration/guide/wcscfg32/wcscod.html
-WIFI_COUNTRY_CODE="FR"
+WIFI_COUNTRY_CODE="IN"
 # Use HTTPS to connect to web portal
 # Set value to Y or N
 HOTSPOT_HTTPS="N"
@@ -1044,8 +1044,8 @@ check_returned_code $?
 execute_command "chown -R kupiki:kupiki /home/kupiki/kupiki-portal-backend"
 
 display_message "Build the Docker image of Portal backend"
-#su - kupiki -c "cd /home/kupiki/kupiki-portal-backend && /usr/local/bin/docker-compose build"
-su - kupiki -c "cd /home/kupiki/kupiki-portal-backend && /usr/local/bin/docker-compose build"
+#su - kupiki -c "cd /home/kupiki/kupiki-portal-backend && /usr/bin/docker-compose build"
+su - kupiki -c "cd /home/kupiki/kupiki-portal-backend && /usr/bin/docker-compose build"
 check_returned_code $?
 
 # Make startup of docker compose as a service (after Docker)
@@ -1061,8 +1061,8 @@ After=docker.service
 Type=oneshot
 RemainAfterExit=yes
 WorkingDirectory=/home/kupiki/kupiki-portal-backend
-ExecStart=/usr/local/bin/docker-compose up -d
-ExecStop=/usr/local/bin/docker-compose stop
+ExecStart=/usr/bin/docker-compose up -d
+ExecStop=/usr/bin/docker-compose stop
 
 [Install]
 WantedBy=default.target
