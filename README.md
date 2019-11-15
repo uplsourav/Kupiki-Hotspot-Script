@@ -108,3 +108,21 @@ For those who want to try another interface (in english of french only) with les
 
 #### Hotspot management
 ![mgmt](http://www.pihomeserver.fr/hosting/kupiki/mgmt.png)
+
+<!-- 0. ssh enable, install git, install tail
+1. name change 
+2. run as su 
+3. path change 
+4. country name change
+
+Remove old ssh key 
+ssh-keygen -R <host>
+
+Enable ssh
+sudo update-rc.d ssh enable
+sudo invoke-rc.d ssh restart
+
+Install package
+apt-gat install <package-name> 
+Run as super user/ Root 
+sudo su -->
